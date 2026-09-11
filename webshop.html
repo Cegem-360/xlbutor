@@ -16,7 +16,7 @@
   <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
 
   <div style="max-width:1240px;margin:0 auto;padding:20px 24px 0;font-size:13.5px;color:#6E675C">
-    <a href="index.dc.html">Főoldal</a> <span style="margin:0 6px">/</span> <a href="index.dc.html#kategoriak">Nappali bútorok</a> <span style="margin:0 6px">/</span> <span>Ülőgarnitúrák</span>
+    <a href="index.html">Főoldal</a> <span style="margin:0 6px">/</span> <a href="index.html#kategoriak">Nappali bútorok</a> <span style="margin:0 6px">/</span> <span>Ülőgarnitúrák</span>
   </div>
 
   <section data-screen-label="Termék" style="max-width:1240px;margin:0 auto;padding:36px 24px 72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;align-items:start">
@@ -66,7 +66,7 @@
       <h2 style="margin:0 0 32px;font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500">Hasonló termékek</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px">
         <sc-for list="{{ related }}" as="r" hint-placeholder-count="4">
-          <a href="Termek.dc.html" style="background:#fff;border:1px solid rgba(28,26,23,.07);padding:24px 18px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center" style-hover="box-shadow:0 12px 32px rgba(28,26,23,.12)">
+          <a href="webshop.html" style="background:#fff;border:1px solid rgba(28,26,23,.07);padding:24px 18px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center" style-hover="box-shadow:0 12px 32px rgba(28,26,23,.12)">
             <img src="{{ r.img }}" alt="{{ r.name }}" style="height:120px;max-width:100%;object-fit:contain">
             <span style="font-size:16px;font-weight:500;color:#1C1A17">{{ r.name }}</span>
             <span style="font-size:16px;color:#8F6E3B;font-weight:600">{{ r.price }}</span>

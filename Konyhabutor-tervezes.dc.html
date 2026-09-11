@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#FAF8F4;color:#1C1A17;font-family:'Jost',sans-serif}a{color:#B08A4F;text-decoration:none}a:hover{color:#8F6E3B}</style>
+</helmet>
+<div style="min-width:0">
+  <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+
+  <section data-screen-label="Tervezés hero" style="position:relative;min-height:420px;display:flex;align-items:center;background:url('uploads/K_B-12.webp') center/cover">
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(23,21,18,.75),rgba(23,21,18,.25))"></div>
+    <div style="position:relative;max-width:1240px;margin:0 auto;padding:80px 24px;width:100%;box-sizing:border-box">
+      <div style="max-width:620px;display:flex;flex-direction:column;gap:16px">
+        <span style="color:#D9B87C;font-size:12.5px;letter-spacing:.3em;text-transform:uppercase">Szolgáltatás</span>
+        <h1 style="margin:0;font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4.6vw,54px);line-height:1.1;font-weight:500;color:#fff">Egyedi konyhabútor tervezés, gyártás, kivitelezés</h1>
+        <p style="margin:0;font-size:17px;line-height:1.6;color:rgba(255,255,255,.85)">Az első vázlattól a kulcsrakész átadásig egy kézben — saját műhely, saját beépítő csapat, valós határidők.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Folyamat" style="max-width:1240px;margin:0 auto;padding:80px 24px">
+    <h2 style="margin:0 0 48px;font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:500;text-align:center">A folyamat lépésről lépésre</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px">
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="5">
+        <div style="border-top:2px solid #B08A4F;padding:22px 4px 0;display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#B08A4F">{{ s.num }}</span>
+          <h3 style="margin:0;font-size:19px;font-weight:600">{{ s.title }}</h3>
+          <p style="margin:0;color:#6E675C;font-size:15px;line-height:1.6">{{ s.text }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Miért mi" style="background:#171512;color:#CFC8BC">
+    <div style="max-width:1240px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:center">
+      <img src="uploads/K_B-16.webp" alt="Minőségi vasalatok" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:500;color:#fff">Miért az XL Bútor?</h2>
+        <div style="display:flex;flex-direction:column;gap:16px;font-size:15.5px;line-height:1.6">
+          <div style="display:flex;gap:14px"><span style="color:#D9B87C;font-family:'Cormorant Garamond',serif;font-size:22px">—</span><span><strong style="color:#fff">Prémium vasalatok:</strong> Blum fékezett, felnyíló és kihúzó rendszerek, élettartam-garanciával.</span></div>
+          <div style="display:flex;gap:14px"><span style="color:#D9B87C;font-family:'Cormorant Garamond',serif;font-size:22px">—</span><span><strong style="color:#fff">Milliméter-pontos gyártás:</strong> saját műhely, CNC megmunkálás, egyedi méretek felár nélkül.</span></div>
+          <div style="display:flex;gap:14px"><span style="color:#D9B87C;font-family:'Cormorant Garamond',serif;font-size:22px">—</span><span><strong style="color:#fff">Egy kéz felelőssége:</strong> tervezés, gyártás és beépítés is nálunk — nincs egymásra mutogatás.</span></div>
+          <div style="display:flex;gap:14px"><span style="color:#D9B87C;font-family:'Cormorant Garamond',serif;font-size:22px">—</span><span><strong style="color:#fff">Gépészet és világítás:</strong> beépíthető gépek, LED világítás és pult-hátfal megoldások egy helyről.</span></div>
+        </div>
+        <a href="Idopontfoglalas.dc.html" style="align-self:flex-start;padding:14px 28px;background:#B08A4F;color:#fff;font-size:13px;letter-spacing:.12em;text-transform:uppercase" style-hover="background:#C9A264;color:#fff">Kérjen időpontot</a>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Galéria" style="max-width:1240px;margin:0 auto;padding:80px 24px">
+    <h2 style="margin:0 0 36px;font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:500;text-align:center">Elkészült konyháink</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+      <img src="uploads/K_B-20.webp" alt="Egyedi konyha" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="uploads/K_B-3.webp" alt="Étkező és konyha" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="uploads/K_B-13.webp" alt="Beépített gépek" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="uploads/K_B-17 (1).jpg" alt="Felnyíló vasalat" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="uploads/K_B-19.webp" alt="Konyha étkezővel" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="uploads/K_B-1.webp" alt="Étkezőasztal" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="Ajanlatkeres.dc.html" style="display:inline-block;padding:15px 32px;background:#B08A4F;color:#fff;font-size:13.5px;letter-spacing:.12em;text-transform:uppercase" style-hover="background:#8F6E3B;color:#fff">Árajánlatot kérek</a>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return { steps: [
+      {num:'01', title:'Konzultáció és felmérés', text:'Bemutatótermünkben vagy a helyszínen egyeztetjük igényeit, pontos felmérést készítünk.'},
+      {num:'02', title:'3D látványterv', text:'Fotórealisztikus látványtervet készítünk, amin minden front, szín és gép a helyén van.'},
+      {num:'03', title:'Árajánlat', text:'Tételes, átlátható árajánlat — rejtett költségek nélkül, opciókkal.'},
+      {num:'04', title:'Gyártás', text:'Saját műhelyünkben gyártjuk le a bútort, prémium lapokból és vasalatokkal.'},
+      {num:'05', title:'Beépítés és átadás', text:'Csapatunk beépíti a konyhát és a gépeket, kulcsrakészen adjuk át.'}
+    ]};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#FAF8F4;color:#1C1A17;font-family:'Jost',sans-serif}a{color:#B08A4F;text-decoration:none}a:hover{color:#8F6E3B}input,select,textarea{font-family:'Jost',sans-serif}</style>
+</helmet>
+<div style="min-width:0">
+  <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+
+  <section data-screen-label="Időpontfoglalás" style="max-width:1240px;margin:0 auto;padding:72px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;align-items:start">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <span style="color:#B08A4F;font-size:12.5px;letter-spacing:.3em;text-transform:uppercase">Időpontfoglalás</span>
+      <h1 style="margin:0;font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:500;line-height:1.1">Foglaljon időpontot ingyenes konyhatervezésre</h1>
+      <p style="margin:0;color:#6E675C;font-size:16.5px;line-height:1.65">A konzultáció kb. 60 perc: átbeszéljük az elképzeléseit, megmutatjuk front- és munkalap-mintáinkat, és megválaszoljuk kérdéseit. Hozza magával alaprajzát vagy méreteit, ha van!</p>
+      <div style="background:#F1EDE5;padding:24px;display:flex;flex-direction:column;gap:10px;font-size:15px">
+        <span style="font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:13px;color:#8F6E3B">Bemutatóterem</span>
+        <span>4600 Kisvárda, Attila u. 61.</span>
+        <span>Hétfő–Péntek: 9:00–17:00 · Szombat: 9:00–12:00</span>
+        <a href="tel:+36704179210">+36-70/417-9210</a>
+      </div>
+      <img src="uploads/K_B-1.webp" alt="Bemutatóterem konzultáció" style="width:100%;aspect-ratio:16/10;object-fit:cover;display:block">
+    </div>
+    <form style="background:#fff;border:1px solid rgba(28,26,23,.1);padding:36px;display:flex;flex-direction:column;gap:18px" onSubmit="{{ submit }}">
+      <h2 style="margin:0 0 4px;font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600">Foglalási űrlap</h2>
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#EDF3EA;border:1px solid #9DBB90;color:#3D5C33;padding:16px;font-size:15px;line-height:1.5">Köszönjük! Foglalását megkaptuk, kollégánk hamarosan visszaigazolja telefonon vagy e-mailben.</div>
+      </sc-if>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Név *
+        <input required name="nev" style="padding:12px 14px;border:1px solid rgba(28,26,23,.2);font-size:15px;background:#FAF8F4">
+      </label>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px">
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Telefonszám *
+          <input required name="tel" type="tel" style="padding:12px 14px;border:1px solid rgba(28,26,23,.2);font-size:15px;background:#FAF8F4">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">E-mail
+          <input name="email" type="email" style="padding:12px 14px;border:1px solid rgba(28,26,23,.2);font-size:15px;background:#FAF8F4">
+        </label>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px">
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Választott nap *
+          <input required name="datum" type="date" style="padding:11px 14px;border:1px solid rgba(28,26,23,.2);font-size:15px;background:#FAF8F4">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Napszak
+          <select name="napszak" style="padding:12px 14px;border:1px solid rgba(28,26,23,.2);font-size:15px;background:#FAF8F4">
+            <option>Délelőtt (9–12)</option>
+            <option>Délután (13–17)</option>
+            <option>Szombat délelőtt</option>
+          </select>
+        </label>
+      </div>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Miben segíthetünk?
+        <textarea name="uzenet" rows="4" placeholder="pl. új konyhát tervezünk egy 12 m²-es helyiségbe…" style="padding:12px 14px;border:1px solid rgba(28,26,23,.2);font-size:15px;background:#FAF8F4;resize:vertical"></textarea>
+      </label>
+      <button type="submit" style="padding:15px;background:#B08A4F;color:#fff;border:none;font-size:14px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif" style-hover="background:#8F6E3B">Időpont foglalása</button>
+      <p style="margin:0;font-size:12.5px;color:#6E675C;line-height:1.5">A gombra kattintva elfogadja adatkezelési tájékoztatónkat. Foglalását munkatársunk telefonon igazolja vissza.</p>
+    </form>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false };
+  renderVals() {
+    return {
+      sent: this.state.sent,
+      submit: (e) => { e.preventDefault(); this.setState({ sent: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

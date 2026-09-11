@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#FAF8F4;color:#1C1A17;font-family:'Jost',sans-serif}a{color:#B08A4F;text-decoration:none}a:hover{color:#8F6E3B}input,textarea{font-family:'Jost',sans-serif}</style>
+</helmet>
+<div style="min-width:0">
+  <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+
+  <section data-screen-label="Kapcsolat" style="max-width:1240px;margin:0 auto;padding:72px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;align-items:start">
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <span style="color:#B08A4F;font-size:12.5px;letter-spacing:.3em;text-transform:uppercase">Kapcsolat</span>
+      <h1 style="margin:0;font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:500;line-height:1.1">Keressen minket bizalommal</h1>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px">
+        <div style="background:#fff;border:1px solid rgba(28,26,23,.08);padding:24px;display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#8F6E3B">Cím</span>
+          <span style="font-size:16px">4600 Kisvárda, Attila u. 61.</span>
+        </div>
+        <div style="background:#fff;border:1px solid rgba(28,26,23,.08);padding:24px;display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#8F6E3B">Telefon</span>
+          <a href="tel:+36704179210" style="font-size:16px">+36-70/417-9210</a>
+        </div>
+        <div style="background:#fff;border:1px solid rgba(28,26,23,.08);padding:24px;display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#8F6E3B">E-mail</span>
+          <a href="mailto:xlbutorboltweb@gmail.com" style="font-size:16px;word-break:break-all">xlbutorboltweb@gmail.com</a>
+        </div>
+        <div style="background:#fff;border:1px solid rgba(28,26,23,.08);padding:24px;display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#8F6E3B">Nyitvatartás</span>
+          <span style="font-size:16px">H–P: 9–17 · Szo: 9–12</span>
+        </div>
+      </div>
+      <div style="background:#E9E4DA;min-height:280px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;border:1px solid rgba(28,26,23,.08)">
+        <span style="font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#6E675C">Google Térkép beágyazás helye</span>
+        <span style="font-size:15px;color:#6E675C">Kisvárda, Attila u. 61.</span>
+      </div>
+    </div>
+    <form style="background:#fff;border:1px solid rgba(28,26,23,.1);padding:36px;display:flex;flex-direction:column;gap:18px" onSubmit="{{ submit }}">
+      <h2 style="margin:0 0 4px;font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600">Írjon nekünk</h2>
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#EDF3EA;border:1px solid #9DBB90;color:#3D5C33;padding:16px;font-size:15px;line-height:1.5">Köszönjük üzenetét! Hamarosan válaszolunk.</div>
+      </sc-if>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Név *
+        <input required name="nev" style="padding:12px 14px;border:1px solid rgba(28,26,23,.2);font-size:15px;background:#FAF8F4">
+      </label>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">E-mail *
+        <input required name="email" type="email" style="padding:12px 14px;border:1px solid rgba(28,26,23,.2);font-size:15px;background:#FAF8F4">
+      </label>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Üzenet *
+        <textarea required name="uzenet" rows="6" style="padding:12px 14px;border:1px solid rgba(28,26,23,.2);font-size:15px;background:#FAF8F4;resize:vertical"></textarea>
+      </label>
+      <button type="submit" style="padding:15px;background:#B08A4F;color:#fff;border:none;font-size:14px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif" style-hover="background:#8F6E3B">Üzenet küldése</button>
+    </form>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false };
+  renderVals() {
+    return {
+      sent: this.state.sent,
+      submit: (e) => { e.preventDefault(); this.setState({ sent: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

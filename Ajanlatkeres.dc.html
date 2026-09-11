@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#FAF8F4;color:#1C1A17;font-family:'Jost',sans-serif}a{color:#B08A4F;text-decoration:none}a:hover{color:#8F6E3B}input,select,textarea{font-family:'Jost',sans-serif}</style>
+</helmet>
+<div style="min-width:0">
+  <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+
+  <section data-screen-label="Árajánlatkérés" style="max-width:1240px;margin:0 auto;padding:72px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;align-items:start">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <span style="color:#B08A4F;font-size:12.5px;letter-spacing:.3em;text-transform:uppercase">Árajánlatkérés</span>
+      <h1 style="margin:0;font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:500;line-height:1.1">Kérjen tételes árajánlatot egyedi bútorára</h1>
+      <p style="margin:0;color:#6E675C;font-size:16.5px;line-height:1.65">Töltse ki az űrlapot, csatolja alaprajzát vagy fotóit, és 48 órán belül visszajelzünk. Az ajánlat ingyenes és kötelezettségmentes.</p>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:15px;line-height:1.5">
+        <div style="display:flex;gap:12px"><span style="color:#B08A4F;font-family:'Cormorant Garamond',serif;font-size:20px">01</span><span>Írja le röviden, milyen bútort szeretne, és milyen méretben.</span></div>
+        <div style="display:flex;gap:12px"><span style="color:#B08A4F;font-family:'Cormorant Garamond',serif;font-size:20px">02</span><span>Csatoljon alaprajzot, skiccet vagy inspirációs fotót.</span></div>
+        <div style="display:flex;gap:12px"><span style="color:#B08A4F;font-family:'Cormorant Garamond',serif;font-size:20px">03</span><span>Kollégánk egyeztet és tételes ajánlatot küld.</span></div>
+      </div>
+      <img src="uploads/K_B-20.webp" alt="Egyedi konyha" style="width:100%;aspect-ratio:16/10;object-fit:cover;display:block">
+    </div>
+    <form style="background:#fff;border:1px solid rgba(28,26,23,.1);padding:36px;display:flex;flex-direction:column;gap:18px" onSubmit="{{ submit }}">
+      <h2 style="margin:0 0 4px;font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600">Ajánlatkérő űrlap</h2>
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#EDF3EA;border:1px solid #9DBB90;color:#3D5C33;padding:16px;font-size:15px;line-height:1.5">Köszönjük! Ajánlatkérését megkaptuk, 48 órán belül jelentkezünk.</div>
+      </sc-if>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px">
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Név *
+          <input required name="nev" style="padding:12px 14px;border:1px solid rgba(28,26,23,.2);font-size:15px;background:#FAF8F4">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Telefonszám *
+          <input required name="tel" type="tel" style="padding:12px 14px;border:1px solid rgba(28,26,23,.2);font-size:15px;background:#FAF8F4">
+        </label>
+      </div>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">E-mail *
+        <input required name="email" type="email" style="padding:12px 14px;border:1px solid rgba(28,26,23,.2);font-size:15px;background:#FAF8F4">
+      </label>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Mire kér ajánlatot?
+        <select name="tipus" style="padding:12px 14px;border:1px solid rgba(28,26,23,.2);font-size:15px;background:#FAF8F4">
+          <option>Egyedi konyhabútor</option>
+          <option>Beépített szekrény / gardrób</option>
+          <option>Nappali bútor</option>
+          <option>Fürdőszoba bútor</option>
+          <option>Iroda bútor</option>
+          <option>Egyéb egyedi bútor</option>
+        </select>
+      </label>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Leírás, méretek *
+        <textarea required name="uzenet" rows="5" placeholder="pl. L-alakú konyha, kb. 3,2 × 2,4 m, matt fehér front, kőmintás munkalap…" style="padding:12px 14px;border:1px solid rgba(28,26,23,.2);font-size:15px;background:#FAF8F4;resize:vertical"></textarea>
+      </label>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Alaprajz vagy fotó csatolása
+        <input type="file" multiple style="padding:10px;border:1px dashed rgba(28,26,23,.3);font-size:14px;background:#FAF8F4">
+      </label>
+      <button type="submit" style="padding:15px;background:#B08A4F;color:#fff;border:none;font-size:14px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif" style-hover="background:#8F6E3B">Ajánlatkérés elküldése</button>
+      <p style="margin:0;font-size:12.5px;color:#6E675C;line-height:1.5">A gombra kattintva elfogadja adatkezelési tájékoztatónkat.</p>
+    </form>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false };
+  renderVals() {
+    return {
+      sent: this.state.sent,
+      submit: (e) => { e.preventDefault(); this.setState({ sent: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

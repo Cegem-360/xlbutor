@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#FAF8F4;color:#1C1A17;font-family:'Jost',sans-serif}a{color:#B08A4F;text-decoration:none}a:hover{color:#8F6E3B}</style>
+</helmet>
+<div style="min-width:0">
+  <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+
+  <div style="max-width:1240px;margin:0 auto;padding:20px 24px 0;font-size:13.5px;color:#6E675C">
+    <a href="Fooldal.dc.html">Főoldal</a> <span style="margin:0 6px">/</span> <a href="Fooldal.dc.html#kategoriak">Nappali bútorok</a> <span style="margin:0 6px">/</span> <span>Ülőgarnitúrák</span>
+  </div>
+
+  <section data-screen-label="Termék" style="max-width:1240px;margin:0 auto;padding:36px 24px 72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;align-items:start">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="background:#fff;border:1px solid rgba(28,26,23,.08);padding:40px;display:flex;align-items:center;justify-content:center">
+        <img src="https://www.xlbutor.hu/wp-content/uploads/Palermo-kanape-B-kat-1-removebg-preview.png" alt="Palermo kanapé" style="max-width:100%;height:auto;max-height:420px;object-fit:contain">
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+        <div style="background:#fff;border:1px solid #B08A4F;padding:12px;display:flex;align-items:center;justify-content:center"><img src="https://www.xlbutor.hu/wp-content/uploads/Palermo-kanape-B-kat-1-removebg-preview.png" alt="Nézet 1" style="max-width:100%;height:64px;object-fit:contain"></div>
+        <div style="background:#fff;border:1px solid rgba(28,26,23,.1);padding:12px;display:flex;align-items:center;justify-content:center"><img src="https://www.xlbutor.hu/wp-content/uploads/Armc-removebg-preview.png" alt="Nézet 2" style="max-width:100%;height:64px;object-fit:contain"></div>
+        <div style="background:#fff;border:1px solid rgba(28,26,23,.1);padding:12px;display:flex;align-items:center;justify-content:center"><img src="https://www.xlbutor.hu/wp-content/uploads/2023-03-21_22-28-35-removebg-preview.png" alt="Nézet 3" style="max-width:100%;height:64px;object-fit:contain"></div>
+        <div style="background:#fff;border:1px solid rgba(28,26,23,.1);padding:12px;display:flex;align-items:center;justify-content:center"><img src="https://www.xlbutor.hu/wp-content/uploads/2023-03-21_22-30-58-removebg-preview.png" alt="Nézet 4" style="max-width:100%;height:64px;object-fit:contain"></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <span style="color:#B08A4F;font-size:12px;letter-spacing:.26em;text-transform:uppercase">Ülőgarnitúrák</span>
+      <h1 style="margin:0;font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:500;line-height:1.1">Palermo kanapé — bézs szövet</h1>
+      <div style="display:flex;align-items:baseline;gap:14px">
+        <span style="font-size:32px;font-weight:600">289 900 Ft</span>
+        <span style="font-size:18px;color:#6E675C;text-decoration:line-through">329 900 Ft</span>
+        <span style="background:#B08A4F;color:#fff;font-size:12px;letter-spacing:.08em;padding:4px 10px;text-transform:uppercase">Akció</span>
+      </div>
+      <p style="margin:0;color:#6E675C;font-size:16px;line-height:1.65">Kényelmes, háromszemélyes kanapé puha, strapabíró szövettel és fa lábakkal. Krém és bézs árnyalatokban rendelhető, kisvárdai üzletünkben élőben is megtekinthető.</p>
+      <div style="display:flex;flex-direction:column;gap:8px;font-size:15px">
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(28,26,23,.1);padding-bottom:8px"><span style="color:#6E675C">Méret</span><span>228 × 96 × 88 cm</span></div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(28,26,23,.1);padding-bottom:8px"><span style="color:#6E675C">Kárpit</span><span>Vízlepergető szövet, B kat.</span></div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(28,26,23,.1);padding-bottom:8px"><span style="color:#6E675C">Szállítás</span><span>2–3 hét, házhozszállítással</span></div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(28,26,23,.1);padding-bottom:8px"><span style="color:#6E675C">Garancia</span><span>2 év</span></div>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:6px">
+        <div style="display:flex;border:1px solid rgba(28,26,23,.2)">
+          <button onClick="{{ dec }}" style="width:44px;height:50px;border:none;background:#fff;font-size:20px;cursor:pointer">−</button>
+          <span style="width:52px;display:flex;align-items:center;justify-content:center;font-size:16px;border-left:1px solid rgba(28,26,23,.12);border-right:1px solid rgba(28,26,23,.12)">{{ qty }}</span>
+          <button onClick="{{ inc }}" style="width:44px;height:50px;border:none;background:#fff;font-size:20px;cursor:pointer">+</button>
+        </div>
+        <button onClick="{{ addCart }}" style="flex:1;min-width:200px;padding:15px 24px;background:#B08A4F;color:#fff;border:none;font-size:14px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif" style-hover="background:#8F6E3B">{{ cartLabel }}</button>
+      </div>
+      <div style="background:#F1EDE5;padding:18px 20px;font-size:14.5px;line-height:1.6;display:flex;flex-direction:column;gap:4px">
+        <span><strong>Megtekinthető üzletünkben:</strong> 4600 Kisvárda, Attila u. 61.</span>
+        <span>Kérdése van? <a href="tel:+36704179210">+36-70/417-9210</a></span>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Kapcsolódó" style="background:#F1EDE5;padding:64px 0">
+    <div style="max-width:1240px;margin:0 auto;padding:0 24px">
+      <h2 style="margin:0 0 32px;font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500">Hasonló termékek</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px">
+        <sc-for list="{{ related }}" as="r" hint-placeholder-count="4">
+          <a href="Termek.dc.html" style="background:#fff;border:1px solid rgba(28,26,23,.07);padding:24px 18px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center" style-hover="box-shadow:0 12px 32px rgba(28,26,23,.12)">
+            <img src="{{ r.img }}" alt="{{ r.name }}" style="height:120px;max-width:100%;object-fit:contain">
+            <span style="font-size:16px;font-weight:500;color:#1C1A17">{{ r.name }}</span>
+            <span style="font-size:16px;color:#8F6E3B;font-weight:600">{{ r.price }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { qty: 1, added: false };
+  renderVals() {
+    return {
+      qty: this.state.qty,
+      inc: () => this.setState(s=>({qty:s.qty+1, added:false})),
+      dec: () => this.setState(s=>({qty:Math.max(1,s.qty-1), added:false})),
+      addCart: () => this.setState({added:true}),
+      cartLabel: this.state.added ? '✓ Kosárba téve' : 'Kosárba teszem',
+      related: [
+        {name:'Milano fotel', price:'89 900 Ft', img:'https://www.xlbutor.hu/wp-content/uploads/Armc-removebg-preview.png'},
+        {name:'Puff lábtartó', price:'34 900 Ft', img:'https://www.xlbutor.hu/wp-content/uploads/2023-03-21_22-28-35-removebg-preview.png'},
+        {name:'Dohányzóasztal', price:'59 900 Ft', img:'https://www.xlbutor.hu/wp-content/uploads/2023-03-21_22-30-58-removebg-preview.png'},
+        {name:'TV állvány', price:'74 900 Ft', img:'https://www.xlbutor.hu/wp-content/uploads/2023-03-21_22-40-15-removebg-preview.png'}
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

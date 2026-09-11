@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#FAF8F4;color:#1C1A17;font-family:'Jost',sans-serif}a{color:#B08A4F;text-decoration:none}a:hover{color:#8F6E3B}</style>
+</helmet>
+<div style="min-width:0">
+  <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+
+  <section data-screen-label="Referenciák" style="max-width:1240px;margin:0 auto;padding:72px 24px">
+    <div style="text-align:center;max-width:700px;margin:0 auto 44px;display:flex;flex-direction:column;gap:14px">
+      <span style="color:#B08A4F;font-size:12.5px;letter-spacing:.3em;text-transform:uppercase">Referenciák</span>
+      <h1 style="margin:0;font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:500">Elkészült munkáink</h1>
+      <p style="margin:0;color:#6E675C;font-size:16.5px;line-height:1.6">Egy teljes lakás bútorai a műhelyünkből: konyha, nappali, előszoba, hálószoba és fürdőszoba — egységes stílusban.</p>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:36px">
+      <sc-for list="{{ filters }}" as="f" hint-placeholder-count="5">
+        <button onClick="{{ f.pick }}" style="{{ f.style }}">{{ f.name }}</button>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px">
+      <sc-for list="{{ items }}" as="it" hint-placeholder-count="9">
+        <figure style="margin:0;position:relative;overflow:hidden">
+          <img src="{{ it.img }}" alt="{{ it.label }}" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .3s" style-hover="transform:scale(1.04)">
+          <figcaption style="position:absolute;left:0;bottom:0;right:0;background:linear-gradient(180deg,transparent,rgba(23,21,18,.75));color:#fff;padding:28px 16px 12px;font-size:14px;letter-spacing:.06em">{{ it.label }}</figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="CTA" style="background:#B08A4F">
+    <div style="max-width:1240px;margin:0 auto;padding:26px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:space-between">
+      <p style="margin:0;color:#fff;font-size:20px;font-family:'Cormorant Garamond',serif;font-weight:600">Tetszik, amit lát? Tervezzük meg az Ön otthonát is.</p>
+      <a href="Ajanlatkeres.dc.html" style="padding:12px 26px;background:#171512;color:#E7DECF;font-size:13px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap" style-hover="background:#2A261F;color:#fff">Árajánlatkérés →</a>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { filter: 'Összes' };
+  renderVals() {
+    const all = [
+      {img:'uploads/K_B-19.webp', label:'Konyha és étkező · matt krém frontok', cat:'Konyha'},
+      {img:'uploads/K_B-20.webp', label:'U-alakú konyha beépített gépekkel', cat:'Konyha'},
+      {img:'uploads/K_B-3.webp', label:'Étkező bordázott oldalpanelekkel', cat:'Konyha'},
+      {img:'uploads/K_B-13.webp', label:'Gépsor: sütő, kávégép, mikró', cat:'Konyha'},
+      {img:'uploads/K_B-17 (1).jpg', label:'Blum Aventos felnyíló vasalat', cat:'Konyha'},
+      {img:'uploads/K_B-16.webp', label:'Felnyíló felsőszekrény belső', cat:'Konyha'},
+      {img:'uploads/K_B-11.webp', label:'TV-fal rejtett világítással', cat:'Nappali'},
+      {img:'uploads/K_B-12.webp', label:'Nappali médiafal', cat:'Nappali'},
+      {img:'uploads/K_B-6.webp', label:'Előszobafal tükörrel, lamellákkal', cat:'Előszoba'},
+      {img:'uploads/K_B-5.webp', label:'Hálószoba beépített gardróbbal', cat:'Hálószoba'},
+      {img:'uploads/K_B-4.webp', label:'Fürdőszoba mosdószekrény', cat:'Fürdőszoba'},
+      {img:'uploads/K_B-1.webp', label:'Egyedi étkezőasztal székekkel', cat:'Konyha'}
+    ];
+    const cats = ['Összes','Konyha','Nappali','Előszoba','Hálószoba','Fürdőszoba'];
+    const base = 'padding:10px 20px;border:1px solid #B08A4F;font-size:13px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:Jost,sans-serif;';
+    return {
+      items: this.state.filter==='Összes' ? all : all.filter(i=>i.cat===this.state.filter),
+      filters: cats.map(c => ({
+        name: c,
+        pick: () => this.setState({filter:c}),
+        style: base + (this.state.filter===c ? 'background:#B08A4F;color:#fff' : 'background:transparent;color:#8F6E3B')
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>
